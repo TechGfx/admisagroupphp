@@ -1,0 +1,1 @@
+<img src="{{URL::asset('LOGO-PNG.png')}}" width="500px" height="100px" alt="">
