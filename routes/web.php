@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Models\clientes;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\admisangrup;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/es', function () {
+    return view('es');
 });
 
 Route::get('/dashboard', function () {
@@ -24,6 +28,9 @@ Route::get('/dashboard', function () {
 
     return view('dashboard', ["datos" => $clientes->all()]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::post("/registro", [admisangrup::class, 'store'])->name('registro');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

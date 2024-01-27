@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\admisangrup;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sessions;
@@ -20,5 +20,3 @@ use App\Http\Controllers\sessions;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::post("/registro", [admisangrup::class, 'store']);

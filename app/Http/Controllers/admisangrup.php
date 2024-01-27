@@ -18,7 +18,6 @@ class admisangrup extends Controller
     public function store(Request $request)
     {
 
-        try {
 
             $validar = validator::make($request->all(), ["nombre" => ["required", "string"], "apellido" => ["required", "string"], "email" => ["required", "email"], "telefono" => ["required", "numeric"]]);
 
@@ -36,11 +35,9 @@ class admisangrup extends Controller
             ]);
 
 
-            return response()->json("registro exitoso", 201);
+            return view("index");
 
-        } catch (\Throwable $th) {
-            return response()->json($this->msgError, 504);
-        }
+       
     }
 
     public function list()
